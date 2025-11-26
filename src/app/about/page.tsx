@@ -34,7 +34,7 @@ export default function About() {
                 À propos de <span className="text-gradient">Foodmoods</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Nous aidons les commerces indépendants à prospérer dans l'économie de la livraison
+                Nous aidons les commerces indépendants à prospérer dans l&apos;économie de la livraison
               </p>
             </div>
           </div>
@@ -47,15 +47,15 @@ export default function About() {
             
             <div className="prose prose-invert max-w-none space-y-6 text-muted-foreground leading-relaxed">
               <p className="text-lg">
-                Foodmoods est né d'un constat simple : les plateformes de livraison comme Uber Eats représentent une opportunité formidable pour les commerces de proximité, mais leur gestion quotidienne peut être chronophage et complexe.
+                Foodmoods est né d&apos;un constat simple : les plateformes de livraison comme Uber Eats représentent une opportunité formidable pour les commerces de proximité, mais leur gestion quotidienne peut être chronophage et complexe.
               </p>
               
               <p className="text-lg">
-                Fondée en 2020 par Didier Gribeauval, Foodmoods a pour ambition de démocratiser l'accès à ces plateformes. Nous croyons que chaque épicerie, chaque magasin de quartier mérite de profiter de cette révolution digitale, sans avoir à sacrifier son temps ou ses ressources.
+                Fondée en 2020 par Didier Gribeauval, Foodmoods a pour ambition de démocratiser l&apos;accès à ces plateformes. Nous croyons que chaque épicerie, chaque magasin de quartier mérite de profiter de cette révolution digitale, sans avoir à sacrifier son temps ou ses ressources.
               </p>
               
               <p className="text-lg">
-                Nous avons accompagné plus de 500 commerces dans toute la France, leur permettant de se concentrer sur ce qu'ils font de mieux : servir leurs clients et faire vivre leurs quartiers.
+                Nous avons accompagné plus de 500 commerces dans toute la France, leur permettant de se concentrer sur ce qu&apos;ils font de mieux : servir leurs clients et faire vivre leurs quartiers.
               </p>
             </div>
           </div>
@@ -89,4 +89,3 @@ export default function About() {
     </div>
   );
 }
-

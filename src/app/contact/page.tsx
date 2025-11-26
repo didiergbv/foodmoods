@@ -176,7 +176,7 @@ export default function Contact() {
                 <div className="p-8 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20">
                   <h3 className="text-xl font-bold mb-4">Temps de réponse</h3>
                   <p className="text-muted-foreground mb-4">
-                    Notre équipe s'engage à vous répondre dans les 24 heures ouvrées.
+                    Notre équipe s&apos;engage à vous répondre dans les 24 heures ouvrées.
                   </p>
                   <div className="flex items-center gap-2 text-primary">
                     <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
