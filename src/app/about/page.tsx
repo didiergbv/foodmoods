@@ -47,7 +47,7 @@ export default function About() {
             
             <div className="prose prose-invert max-w-none space-y-6 text-muted-foreground leading-relaxed">
               <p className="text-lg">
-                Foodmoods est né d&apos;un constat simple : les plateformes de livraison comme Uber Eats représentent une opportunité formidable pour les commerces de proximité, mais leur gestion quotidienne peut être chronophage et complexe.
+                Foodmoods est né d&apos;un constat simple : les plateformes de livraison représentent une opportunité formidable pour les commerces de proximité, mais leur gestion quotidienne peut être chronophage et complexe.
               </p>
               
               <p className="text-lg">

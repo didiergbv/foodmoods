@@ -12,7 +12,7 @@ const HowItWorks = () => {
       icon: CheckCircle2,
       number: "02",
       title: "Configuration complète",
-      description: "Nous créons votre présence sur Uber Eats : catalogue, photos, descriptions et paramètres optimaux."
+      description: "Nous créons votre présence sur les plateformes de livraison : catalogue, photos, descriptions et paramètres optimaux."
     },
     {
       icon: Rocket,

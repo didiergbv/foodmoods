@@ -29,7 +29,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/services" className="hover:text-primary transition-colors">Gestion Uber Eats</Link></li>
+              <li><Link href="/services" className="hover:text-primary transition-colors">Gestion Livraison</Link></li>
               <li><Link href="/services" className="hover:text-primary transition-colors">Optimisation Catalogue</Link></li>
               <li><Link href="/services" className="hover:text-primary transition-colors">Support Client</Link></li>
               <li><Link href="/services" className="hover:text-primary transition-colors">Analyse Performance</Link></li>

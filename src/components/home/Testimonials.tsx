@@ -3,7 +3,7 @@ import { Quote } from "lucide-react";
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "Depuis que nous travaillons avec Foodmoods, notre chiffre d'affaires sur Uber Eats a augmenté de 40%. Ils gèrent tout et nous n'avons qu'à préparer les commandes.",
+      quote: "Depuis que nous travaillons avec Foodmoods, notre chiffre d'affaires en livraison a augmenté de 40%. Ils gèrent tout et nous n'avons qu'à préparer les commandes.",
       author: "Karim Medaoud",
       role: "Directeur, Supérette des Voileux",
       rating: 5

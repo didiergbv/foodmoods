@@ -18,7 +18,7 @@ const WhatWeDo = () => {
             </div>
             <h3 className="text-2xl font-semibold mb-4">Gestion de catalogue</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Nous créons et optimisons votre catalogue produits sur Uber Eats avec photos professionnelles et descriptions attractives.
+              Nous créons et optimisons votre catalogue produits sur les plateformes de livraison avec photos professionnelles et descriptions attractives.
             </p>
           </div>
           

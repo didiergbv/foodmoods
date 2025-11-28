@@ -10,8 +10,8 @@ export default function Services() {
   const services = [
     {
       icon: Smartphone,
-      title: "Gestion complète Uber Eats",
-      description: "Nous prenons en charge l'intégralité de votre présence sur Uber Eats",
+      title: "Gestion complète des plateformes",
+      description: "Nous prenons en charge l'intégralité de votre présence sur les plateformes de livraison",
       features: [
         "Création et mise à jour du catalogue",
         "Optimisation des horaires d'ouverture",
