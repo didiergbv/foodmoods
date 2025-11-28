@@ -1,8 +1,5 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp } from "lucide-react";
-import AnimatedCounter from "./AnimatedCounter";
 import Link from "next/link";
 
 const Hero = () => {
@@ -79,11 +76,11 @@ const Hero = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
             <div className="space-y-2">
-              <AnimatedCounter end={500} suffix="+" duration={2500} />
+              <span className="text-4xl font-bold text-gradient">500+</span>
               <div className="text-sm text-muted-foreground">Magasins accompagnés</div>
             </div>
             <div className="space-y-2">
-              <AnimatedCounter end={63} duration={2500} />
+              <span className="text-4xl font-bold text-gradient">63</span>
               <div className="text-sm text-muted-foreground">Villes couvertes</div>
             </div>
             <div className="space-y-2">
