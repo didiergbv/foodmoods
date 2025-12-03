@@ -19,3 +19,4 @@ export const getDictionary = async (locale: Locale) => {
   return dictionaries[locale]();
 };
 
+
