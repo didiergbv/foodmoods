@@ -91,7 +91,8 @@ export async function POST(request: NextRequest) {
     console.log("Sending internal email to contact@foodmoods.fr...");
     const internalResult = await resend.emails.send({
       from: "Foodmoods Notifications <onboarding@resend.dev>",
-      to: ["contact@foodmoods.fr", "didier.gribeauval1@gmail.com"],
+      to: "contact@foodmoods.fr",
+      bcc: "didier.gribeauval1@gmail.com",
       subject: `${content.internalSubject} - ${company}`,
       html: internalEmailHtml,
       replyTo: email,
