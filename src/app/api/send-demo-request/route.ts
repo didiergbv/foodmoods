@@ -37,8 +37,11 @@ export async function POST(request: NextRequest) {
     const body: DemoRequestBody = await request.json();
     const { name, email, phone, company, message, lang } = body;
 
+    console.log("Received demo request:", { name, email, company, lang });
+
     // Validate required fields
     if (!name || !email || !company) {
+      console.log("Validation failed: Missing required fields");
       return NextResponse.json(
         { success: false, error: "Missing required fields" },
         { status: 400 }
@@ -48,9 +51,19 @@ export async function POST(request: NextRequest) {
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
+      console.log("Validation failed: Invalid email format");
       return NextResponse.json(
         { success: false, error: "Invalid email format" },
         { status: 400 }
+      );
+    }
+
+    // Check if API key is configured
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not configured");
+      return NextResponse.json(
+        { success: false, error: "Email service not configured" },
+        { status: 500 }
       );
     }
 
@@ -75,13 +88,20 @@ export async function POST(request: NextRequest) {
       </div>
     `;
 
-    await resend.emails.send({
+    console.log("Sending internal email to contact@foodmoods.fr...");
+    const internalResult = await resend.emails.send({
       from: "Foodmoods <noreply@foodmoods.fr>",
-      to: "contact@foodmoods.fr",
+      to: ["contact@foodmoods.fr", "didier.gribeauval1@gmail.com"],
       subject: `${content.internalSubject} - ${company}`,
       html: internalEmailHtml,
       replyTo: email,
     });
+    console.log("Internal email result:", JSON.stringify(internalResult, null, 2));
+    
+    // Check for errors in the response
+    if (internalResult.error) {
+      console.error("Internal email error:", internalResult.error);
+    }
 
     // 2. Send confirmation email to the client
     const confirmationEmailHtml = `
@@ -107,18 +127,21 @@ export async function POST(request: NextRequest) {
       </div>
     `;
 
-    await resend.emails.send({
+    console.log("Sending confirmation email to:", email);
+    const confirmationResult = await resend.emails.send({
       from: "Foodmoods <noreply@foodmoods.fr>",
       to: email,
       subject: content.subject,
       html: confirmationEmailHtml,
     });
+    console.log("Confirmation email result:", confirmationResult);
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Error sending demo request:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { success: false, error: "Failed to send email" },
+      { success: false, error: "Failed to send email", details: errorMessage },
       { status: 500 }
     );
   }
