@@ -2,7 +2,29 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import Link from "next/link";
 
-const Hero = () => {
+interface HeroProps {
+  lang: string;
+  dict: {
+    hero: {
+      badge: string;
+      title1: string;
+      titleHighlight: string;
+      title2: string;
+      description: string;
+      cta: string;
+      ctaSecondary: string;
+      stats: {
+        stores: string;
+        cities: string;
+        revenue: string;
+      };
+    };
+  };
+}
+
+const Hero = ({ lang, dict }: HeroProps) => {
+  const basePath = `/${lang}`;
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-background">
       {/* Grid Pattern Background */}
@@ -37,18 +59,18 @@ const Hero = () => {
         <div className="text-center space-y-8 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary">
             <TrendingUp className="w-4 h-4" />
-            Solution N°1 pour les commerces de proximité
+            {dict.hero.badge}
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Passez à la{" "}
-            <span className="text-gradient">livraison</span>
+            {dict.hero.title1}{" "}
+            <span className="text-gradient">{dict.hero.titleHighlight}</span>
             ,<br />
-            sans prise de tête
+            {dict.hero.title2}
           </h1>
           
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Foodmoods gère votre présence sur les plateformes de livraison pendant que vous vous concentrez sur votre commerce.
+            {dict.hero.description}
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -57,8 +79,8 @@ const Hero = () => {
               className="bg-primary hover:bg-primary/90 text-white font-medium px-8 group"
               asChild
             >
-              <Link href="/contact">
-                Demander une démo
+              <Link href={`${basePath}/contact`}>
+                {dict.hero.cta}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
@@ -68,8 +90,8 @@ const Hero = () => {
               className="border-border hover:bg-card"
               asChild
             >
-              <Link href="/services">
-                Découvrir nos services
+              <Link href={`${basePath}/services`}>
+                {dict.hero.ctaSecondary}
               </Link>
             </Button>
           </div>
@@ -77,15 +99,15 @@ const Hero = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
             <div className="space-y-2">
               <span className="text-4xl font-bold text-gradient">500+</span>
-              <div className="text-sm text-muted-foreground">Magasins accompagnés</div>
+              <div className="text-sm text-muted-foreground">{dict.hero.stats.stores}</div>
             </div>
             <div className="space-y-2">
               <span className="text-4xl font-bold text-gradient">63</span>
-              <div className="text-sm text-muted-foreground">Villes couvertes</div>
+              <div className="text-sm text-muted-foreground">{dict.hero.stats.cities}</div>
             </div>
             <div className="space-y-2">
               <div className="text-4xl font-bold text-gradient">5M€+</div>
-              <div className="text-sm text-muted-foreground">CA généré pour nos partenaires</div>
+              <div className="text-sm text-muted-foreground">{dict.hero.stats.revenue}</div>
             </div>
           </div>
         </div>

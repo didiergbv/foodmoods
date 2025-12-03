@@ -1,0 +1,217 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "badge": "#1 Solution for local businesses",
+    "title1": "Switch to",
+    "titleHighlight": "delivery",
+    "title2": "hassle-free",
+    "description": "Foodmoods manages your presence on delivery platforms while you focus on your business.",
+    "cta": "Request a demo",
+    "ctaSecondary": "Discover our services",
+    "stats": {
+      "stores": "Stores supported",
+      "cities": "Cities covered",
+      "revenue": "Revenue generated for partners"
+    }
+  },
+  "whatWeDo": {
+    "title": "What Foodmoods does",
+    "description": "We manage your delivery activity from A to Z to maximize your sales",
+    "catalogManagement": {
+      "title": "Catalog management",
+      "description": "We create and optimize your product catalog on delivery platforms with professional photos and attractive descriptions."
+    },
+    "orderManagement": {
+      "title": "Order management",
+      "description": "Our team handles all orders, manages customer service and provides real-time tracking of your activity."
+    },
+    "optimization": {
+      "title": "Continuous optimization",
+      "description": "Detailed analysis, strategic adjustments and personalized recommendations to boost your performance."
+    }
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "description": "Three simple steps to start your delivery activity",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Simple registration",
+        "description": "Fill out our online form and share information about your business. We take care of the rest."
+      },
+      {
+        "number": "02",
+        "title": "Complete setup",
+        "description": "We create your presence on delivery platforms: catalog, photos, descriptions and optimal settings."
+      },
+      {
+        "number": "03",
+        "title": "Launch and monitoring",
+        "description": "Your store is online! We handle everything daily while you track your performance."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What our partners say",
+    "description": "Hundreds of merchants trust us",
+    "items": [
+      {
+        "quote": "Since we started working with Foodmoods, our delivery revenue has increased by 40%. They handle everything and we just prepare the orders.",
+        "author": "Karim Medaoud",
+        "role": "Director, Supérette des Voileux"
+      },
+      {
+        "quote": "Impeccable service! The Foodmoods team is responsive and professional. Our catalog is always up to date and customers are satisfied.",
+        "author": "Abdellatif Elkadouri",
+        "role": "Owner, Epernay Market"
+      },
+      {
+        "quote": "I highly recommend Foodmoods. They allowed me to launch on delivery platforms without stress. A real trusted partner.",
+        "author": "Abdennour Oudelhour",
+        "role": "Manager, Epicerie du Rond Point"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to boost your sales?",
+    "description": "Join hundreds of businesses that have trusted Foodmoods to develop their delivery activity.",
+    "button": "Request a free demo",
+    "buttonSecondary": "Learn more"
+  },
+  "footer": {
+    "tagline": "Helping local businesses thrive on delivery platforms.",
+    "navigation": "Navigation",
+    "services": "Services",
+    "servicesLinks": {
+      "delivery": "Delivery Management",
+      "catalog": "Catalog Optimization",
+      "support": "Customer Support",
+      "analytics": "Performance Analysis"
+    },
+    "contact": "Contact",
+    "copyright": "All rights reserved."
+  },
+  "about": {
+    "title": "About",
+    "titleHighlight": "Foodmoods",
+    "subtitle": "We help independent businesses thrive in the delivery economy",
+    "storyTitle": "Our Story",
+    "storyParagraphs": [
+      "Foodmoods was born from a simple observation: delivery platforms represent a tremendous opportunity for local businesses, but their daily management can be time-consuming and complex.",
+      "Founded in 2020 by Didier Gribeauval, Foodmoods aims to democratize access to these platforms. We believe that every grocery store, every neighborhood shop deserves to benefit from this digital revolution, without having to sacrifice their time or resources.",
+      "We have supported more than 500 businesses throughout France, allowing them to focus on what they do best: serving their customers and bringing their neighborhoods to life."
+    ],
+    "valuesTitle": "Our Values",
+    "values": [
+      {
+        "title": "Our Mission",
+        "description": "Enable all independent businesses to benefit from the delivery boom, without technical complexity or administrative burden."
+      },
+      {
+        "title": "Our Vision",
+        "description": "Become the reference partner for local businesses in their digital transformation and growth on platforms."
+      },
+      {
+        "title": "Our Commitment",
+        "description": "Offer quality, transparent and personalized service that generates concrete results for our partners."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "titleHighlight": "Us",
+    "subtitle": "Have a question? A project? Our team is here to help you",
+    "formTitle": "Request a demo",
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "John Doe",
+      "email": "Email",
+      "emailPlaceholder": "john.doe@email.com",
+      "storeName": "Store name",
+      "storeNamePlaceholder": "Neighborhood Grocery",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your project...",
+      "submit": "Send message"
+    },
+    "infoTitle": "Contact information",
+    "email": "Email",
+    "address": "Address",
+    "responseTime": {
+      "title": "Response time",
+      "description": "Our team commits to respond within 24 business hours.",
+      "available": "Available now"
+    },
+    "toast": {
+      "title": "Message sent!",
+      "description": "We will get back to you as soon as possible."
+    }
+  },
+  "services": {
+    "title": "Our",
+    "titleHighlight": "Services",
+    "subtitle": "Complete solutions to manage your delivery activity and maximize your revenue",
+    "ctaTitle": "Have a question about our services?",
+    "ctaDescription": "Our team is here to advise you and find the right solution",
+    "ctaButton": "Contact us",
+    "items": [
+      {
+        "title": "Complete platform management",
+        "description": "We handle your entire presence on delivery platforms",
+        "features": [
+          "Catalog creation and updates",
+          "Opening hours optimization",
+          "Promotions and special offers management"
+        ]
+      },
+      {
+        "title": "Catalog optimization",
+        "description": "An attractive catalog that converts visitors into customers",
+        "features": [
+          "Professional photos of your products",
+          "SEO-optimized descriptions",
+          "Regular adjustments based on performance"
+        ]
+      },
+      {
+        "title": "Dedicated customer support",
+        "description": "A team at your service to handle all interactions",
+        "features": [
+          "Customer questions answered 7 days a week",
+          "Claims and disputes management",
+          "Customer satisfaction tracking"
+        ]
+      },
+      {
+        "title": "Analysis and reporting",
+        "description": "Accurate data to drive your business",
+        "features": [
+          "Weekly and monthly reports",
+          "Sales trend analysis",
+          "Personalized recommendations"
+        ]
+      },
+      {
+        "title": "Training and support",
+        "description": "We support you every step of the way",
+        "features": [
+          "Team training",
+          "Expert advice",
+          "Unlimited technical support"
+        ]
+      }
+    ]
+  },
+  "notFound": {
+    "title": "404",
+    "description": "Oops! Page not found",
+    "link": "Return to Home"
+  }
+}
+

@@ -16,11 +16,15 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(
     const pathname = usePathname();
     const hrefString = typeof href === "string" ? href : href.pathname || "";
     
+    // Handle localized routes (e.g., /fr, /en, /fr/about, /en/about)
     const isActive = end 
       ? pathname === hrefString 
-      : pathname.startsWith(hrefString) && hrefString !== "/";
+      : pathname.startsWith(hrefString) && hrefString !== "/" && !hrefString.match(/^\/[a-z]{2}$/);
     
-    const isHomeActive = hrefString === "/" && pathname === "/";
+    // Special handling for home routes like /fr and /en
+    const isLocaleHome = hrefString.match(/^\/[a-z]{2}$/);
+    const isHomeActive = isLocaleHome && pathname === hrefString;
+    
     const active = isActive || isHomeActive;
 
     return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, use } from "react";
 import { Mail, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,8 +8,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { getDictionary, type Locale } from "@/lib/i18n";
 
-export default function Contact() {
+export default function Contact({
+  params,
+}: {
+  params: Promise<{ lang: Locale }>;
+}) {
+  const { lang } = use(params);
+  const [dict, setDict] = useState<Awaited<ReturnType<typeof getDictionary>> | null>(null);
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -18,16 +25,23 @@ export default function Contact() {
     message: ""
   });
 
+  // Load dictionary
+  useState(() => {
+    getDictionary(lang).then(setDict);
+  });
+
+  if (!dict) {
+    return null; // or a loading state
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
     toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais.",
+      title: dict.contact.toast.title,
+      description: dict.contact.toast.description,
     });
     
-    // Reset form
     setFormData({
       name: "",
       email: "",
@@ -45,29 +59,29 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar lang={lang} dict={dict} />
       
       <main className="pt-16">
         <section className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="text-center space-y-6 mb-16">
               <h1 className="text-5xl md:text-6xl font-bold">
-                Contactez-<span className="text-gradient">nous</span>
+                {dict.contact.title}<span className="text-gradient">{dict.contact.titleHighlight}</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Une question ? Un projet ? Notre équipe est à votre écoute pour vous accompagner
+                {dict.contact.subtitle}
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
               <div className="p-8 rounded-2xl bg-card border border-border">
-                <h2 className="text-2xl font-bold mb-6">Demander une démo</h2>
+                <h2 className="text-2xl font-bold mb-6">{dict.contact.formTitle}</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">
-                      Nom complet *
+                      {dict.contact.form.name} *
                     </label>
                     <Input
                       id="name"
@@ -75,14 +89,14 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Jean Dupont"
+                      placeholder={dict.contact.form.namePlaceholder}
                       className="bg-background border-border"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium">
-                      Email *
+                      {dict.contact.form.email} *
                     </label>
                     <Input
                       id="email"
@@ -91,14 +105,14 @@ export default function Contact() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="jean.dupont@email.com"
+                      placeholder={dict.contact.form.emailPlaceholder}
                       className="bg-background border-border"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <label htmlFor="storeName" className="text-sm font-medium">
-                      Nom du commerce *
+                      {dict.contact.form.storeName} *
                     </label>
                     <Input
                       id="storeName"
@@ -106,21 +120,21 @@ export default function Contact() {
                       required
                       value={formData.storeName}
                       onChange={handleChange}
-                      placeholder="Épicerie du Quartier"
+                      placeholder={dict.contact.form.storeNamePlaceholder}
                       className="bg-background border-border"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium">
-                      Message
+                      {dict.contact.form.message}
                     </label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Parlez-nous de votre projet..."
+                      placeholder={dict.contact.form.messagePlaceholder}
                       rows={4}
                       className="bg-background border-border resize-none"
                     />
@@ -131,7 +145,7 @@ export default function Contact() {
                     size="lg"
                     className="w-full bg-primary hover:bg-primary/90 text-white"
                   >
-                    Envoyer le message
+                    {dict.contact.form.submit}
                     <Send className="ml-2 w-4 h-4" />
                   </Button>
                 </form>
@@ -140,7 +154,7 @@ export default function Contact() {
               {/* Contact Info */}
               <div className="space-y-8">
                 <div className="p-8 rounded-2xl bg-card border border-border">
-                  <h2 className="text-2xl font-bold mb-6">Informations de contact</h2>
+                  <h2 className="text-2xl font-bold mb-6">{dict.contact.infoTitle}</h2>
                   
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
@@ -148,7 +162,7 @@ export default function Contact() {
                         <Mail className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="font-semibold mb-1">Email</h3>
+                        <h3 className="font-semibold mb-1">{dict.contact.email}</h3>
                         <a
                           href="mailto:contact@foodmoods.fr"
                           className="text-muted-foreground hover:text-primary transition-colors"
@@ -163,7 +177,7 @@ export default function Contact() {
                         <MapPin className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="font-semibold mb-1">Adresse</h3>
+                        <h3 className="font-semibold mb-1">{dict.contact.address}</h3>
                         <p className="text-muted-foreground">
                           15 rue des Halles<br />
                           75001 Paris, France
@@ -174,13 +188,13 @@ export default function Contact() {
                 </div>
 
                 <div className="p-8 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20">
-                  <h3 className="text-xl font-bold mb-4">Temps de réponse</h3>
+                  <h3 className="text-xl font-bold mb-4">{dict.contact.responseTime.title}</h3>
                   <p className="text-muted-foreground mb-4">
-                    Notre équipe s&apos;engage à vous répondre dans les 24 heures ouvrées.
+                    {dict.contact.responseTime.description}
                   </p>
                   <div className="flex items-center gap-2 text-primary">
                     <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                    <span className="text-sm font-medium">Disponibles maintenant</span>
+                    <span className="text-sm font-medium">{dict.contact.responseTime.available}</span>
                   </div>
                 </div>
               </div>
@@ -189,7 +203,7 @@ export default function Contact() {
         </section>
       </main>
 
-      <Footer />
+      <Footer lang={lang} dict={dict} />
     </div>
   );
 }

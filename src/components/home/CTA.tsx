@@ -4,7 +4,21 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const CTA = () => {
+interface CTAProps {
+  lang: string;
+  dict: {
+    cta: {
+      title: string;
+      description: string;
+      button: string;
+      buttonSecondary: string;
+    };
+  };
+}
+
+const CTA = ({ lang, dict }: CTAProps) => {
+  const basePath = `/${lang}`;
+
   return (
     <section className="section-padding">
       <div className="max-w-4xl mx-auto">
@@ -13,10 +27,10 @@ const CTA = () => {
           
           <div className="relative z-10 space-y-6">
             <h2 className="text-4xl md:text-5xl font-bold">
-              Prêt à booster vos ventes ?
+              {dict.cta.title}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Rejoignez des centaines de commerces qui ont fait confiance à Foodmoods pour développer leur activité de livraison.
+              {dict.cta.description}
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -25,8 +39,8 @@ const CTA = () => {
                 className="bg-primary hover:bg-primary/90 text-white font-medium px-8 group"
                 asChild
               >
-                <Link href="/contact">
-                  Demander une démo gratuite
+                <Link href={`${basePath}/contact`}>
+                  {dict.cta.button}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -36,8 +50,8 @@ const CTA = () => {
                 className="border-border hover:bg-card"
                 asChild
               >
-                <Link href="/about">
-                  En savoir plus
+                <Link href={`${basePath}/about`}>
+                  {dict.cta.buttonSecondary}
                 </Link>
               </Button>
             </div>

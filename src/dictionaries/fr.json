@@ -1,0 +1,217 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À propos",
+    "contact": "Contact",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "hero": {
+    "badge": "Solution N°1 pour les commerces de proximité",
+    "title1": "Passez à la",
+    "titleHighlight": "livraison",
+    "title2": "sans prise de tête",
+    "description": "Foodmoods gère votre présence sur les plateformes de livraison pendant que vous vous concentrez sur votre commerce.",
+    "cta": "Demander une démo",
+    "ctaSecondary": "Découvrir nos services",
+    "stats": {
+      "stores": "Magasins accompagnés",
+      "cities": "Villes couvertes",
+      "revenue": "CA généré pour nos partenaires"
+    }
+  },
+  "whatWeDo": {
+    "title": "Ce que fait Foodmoods",
+    "description": "Nous gérons votre activité de livraison de A à Z pour maximiser vos ventes",
+    "catalogManagement": {
+      "title": "Gestion de catalogue",
+      "description": "Nous créons et optimisons votre catalogue produits sur les plateformes de livraison avec photos professionnelles et descriptions attractives."
+    },
+    "orderManagement": {
+      "title": "Gestion des commandes",
+      "description": "Notre équipe traite toutes les commandes, gère le service client et assure un suivi en temps réel de votre activité."
+    },
+    "optimization": {
+      "title": "Optimisation continue",
+      "description": "Analyses détaillées, ajustements stratégiques et recommandations personnalisées pour booster vos performances."
+    }
+  },
+  "howItWorks": {
+    "title": "Comment ça fonctionne",
+    "description": "Trois étapes simples pour démarrer votre activité de livraison",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Inscription simple",
+        "description": "Remplissez notre formulaire en ligne et partagez les informations sur votre commerce. Nous nous occupons du reste."
+      },
+      {
+        "number": "02",
+        "title": "Configuration complète",
+        "description": "Nous créons votre présence sur les plateformes de livraison : catalogue, photos, descriptions et paramètres optimaux."
+      },
+      {
+        "number": "03",
+        "title": "Lancement et suivi",
+        "description": "Votre boutique est en ligne ! Nous gérons tout au quotidien pendant que vous suivez vos performances."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Ce que disent nos partenaires",
+    "description": "Des centaines de commerçants nous font confiance",
+    "items": [
+      {
+        "quote": "Depuis que nous travaillons avec Foodmoods, notre chiffre d'affaires en livraison a augmenté de 40%. Ils gèrent tout et nous n'avons qu'à préparer les commandes.",
+        "author": "Karim Medaoud",
+        "role": "Directeur, Supérette des Voileux"
+      },
+      {
+        "quote": "Service impeccable ! L'équipe Foodmoods est réactive et professionnelle. Notre catalogue est toujours à jour et les clients sont satisfaits.",
+        "author": "Abdellatif Elkadouri",
+        "role": "Propriétaire, Epernay Market"
+      },
+      {
+        "quote": "Je recommande vivement Foodmoods. Ils m'ont permis de me lancer sur les plateformes de livraison sans stress. Un vrai partenaire de confiance.",
+        "author": "Abdennour Oudelhour",
+        "role": "Gérant, Epicerie du Rond Point"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Prêt à booster vos ventes ?",
+    "description": "Rejoignez des centaines de commerces qui ont fait confiance à Foodmoods pour développer leur activité de livraison.",
+    "button": "Demander une démo gratuite",
+    "buttonSecondary": "En savoir plus"
+  },
+  "footer": {
+    "tagline": "Aidons les commerces de proximité à prospérer sur les plateformes de livraison.",
+    "navigation": "Navigation",
+    "services": "Services",
+    "servicesLinks": {
+      "delivery": "Gestion Livraison",
+      "catalog": "Optimisation Catalogue",
+      "support": "Support Client",
+      "analytics": "Analyse Performance"
+    },
+    "contact": "Contact",
+    "copyright": "Tous droits réservés."
+  },
+  "about": {
+    "title": "À propos de",
+    "titleHighlight": "Foodmoods",
+    "subtitle": "Nous aidons les commerces indépendants à prospérer dans l'économie de la livraison",
+    "storyTitle": "Notre Histoire",
+    "storyParagraphs": [
+      "Foodmoods est né d'un constat simple : les plateformes de livraison représentent une opportunité formidable pour les commerces de proximité, mais leur gestion quotidienne peut être chronophage et complexe.",
+      "Fondée en 2020 par Didier Gribeauval, Foodmoods a pour ambition de démocratiser l'accès à ces plateformes. Nous croyons que chaque épicerie, chaque magasin de quartier mérite de profiter de cette révolution digitale, sans avoir à sacrifier son temps ou ses ressources.",
+      "Nous avons accompagné plus de 500 commerces dans toute la France, leur permettant de se concentrer sur ce qu'ils font de mieux : servir leurs clients et faire vivre leurs quartiers."
+    ],
+    "valuesTitle": "Nos Valeurs",
+    "values": [
+      {
+        "title": "Notre Mission",
+        "description": "Permettre à tous les commerces indépendants de profiter de l'essor de la livraison, sans complexité technique ni charge administrative."
+      },
+      {
+        "title": "Notre Vision",
+        "description": "Devenir le partenaire de référence des commerces de proximité dans leur transformation digitale et leur croissance sur les plateformes."
+      },
+      {
+        "title": "Notre Engagement",
+        "description": "Offrir un service de qualité, transparent et personnalisé qui génère des résultats concrets pour nos partenaires."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contactez-",
+    "titleHighlight": "nous",
+    "subtitle": "Une question ? Un projet ? Notre équipe est à votre écoute pour vous accompagner",
+    "formTitle": "Demander une démo",
+    "form": {
+      "name": "Nom complet",
+      "namePlaceholder": "Jean Dupont",
+      "email": "Email",
+      "emailPlaceholder": "jean.dupont@email.com",
+      "storeName": "Nom du commerce",
+      "storeNamePlaceholder": "Épicerie du Quartier",
+      "message": "Message",
+      "messagePlaceholder": "Parlez-nous de votre projet...",
+      "submit": "Envoyer le message"
+    },
+    "infoTitle": "Informations de contact",
+    "email": "Email",
+    "address": "Adresse",
+    "responseTime": {
+      "title": "Temps de réponse",
+      "description": "Notre équipe s'engage à vous répondre dans les 24 heures ouvrées.",
+      "available": "Disponibles maintenant"
+    },
+    "toast": {
+      "title": "Message envoyé !",
+      "description": "Nous vous répondrons dans les plus brefs délais."
+    }
+  },
+  "services": {
+    "title": "Nos",
+    "titleHighlight": "Services",
+    "subtitle": "Des solutions complètes pour gérer votre activité de livraison et maximiser vos revenus",
+    "ctaTitle": "Une question sur nos services ?",
+    "ctaDescription": "Notre équipe est là pour vous conseiller et trouver la solution adaptée",
+    "ctaButton": "Nous contacter",
+    "items": [
+      {
+        "title": "Gestion complète des plateformes",
+        "description": "Nous prenons en charge l'intégralité de votre présence sur les plateformes de livraison",
+        "features": [
+          "Création et mise à jour du catalogue",
+          "Optimisation des horaires d'ouverture",
+          "Gestion des promotions et offres spéciales"
+        ]
+      },
+      {
+        "title": "Optimisation du catalogue",
+        "description": "Un catalogue attractif qui convertit les visiteurs en clients",
+        "features": [
+          "Photos professionnelles de vos produits",
+          "Descriptions optimisées pour le référencement",
+          "Ajustements réguliers selon les performances"
+        ]
+      },
+      {
+        "title": "Support client dédié",
+        "description": "Une équipe à votre service pour gérer toutes les interactions",
+        "features": [
+          "Réponse aux questions clients 7j/7",
+          "Gestion des réclamations et litiges",
+          "Suivi de la satisfaction client"
+        ]
+      },
+      {
+        "title": "Analyse et reporting",
+        "description": "Des données précises pour piloter votre activité",
+        "features": [
+          "Rapports hebdomadaires et mensuels",
+          "Analyses des tendances de vente",
+          "Recommandations personnalisées"
+        ]
+      },
+      {
+        "title": "Formation et accompagnement",
+        "description": "Nous vous accompagnons à chaque étape",
+        "features": [
+          "Formation de votre équipe",
+          "Conseils d'experts",
+          "Support technique illimité"
+        ]
+      }
+    ]
+  },
+  "notFound": {
+    "title": "404",
+    "description": "Oups ! Page non trouvée",
+    "link": "Retour à l'accueil"
+  }
+}
+

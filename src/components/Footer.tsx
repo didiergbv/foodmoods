@@ -1,7 +1,34 @@
 import { Store, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 
-const Footer = () => {
+interface FooterProps {
+  lang: string;
+  dict: {
+    nav: {
+      home: string;
+      services: string;
+      about: string;
+      contact: string;
+    };
+    footer: {
+      tagline: string;
+      navigation: string;
+      services: string;
+      servicesLinks: {
+        delivery: string;
+        catalog: string;
+        support: string;
+        analytics: string;
+      };
+      contact: string;
+      copyright: string;
+    };
+  };
+}
+
+const Footer = ({ lang, dict }: FooterProps) => {
+  const basePath = `/${lang}`;
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto section-padding">
@@ -12,32 +39,32 @@ const Footer = () => {
               <span className="text-xl font-bold text-gradient">Foodmoods</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Aidons les commerces de proximité à prospérer sur les plateformes de livraison.
+              {dict.footer.tagline}
             </p>
           </div>
           
           <div>
-            <h3 className="font-semibold mb-4">Navigation</h3>
+            <h3 className="font-semibold mb-4">{dict.footer.navigation}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/" className="hover:text-primary transition-colors">Accueil</Link></li>
-              <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
-              <li><Link href="/about" className="hover:text-primary transition-colors">À propos</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+              <li><Link href={basePath} className="hover:text-primary transition-colors">{dict.nav.home}</Link></li>
+              <li><Link href={`${basePath}/services`} className="hover:text-primary transition-colors">{dict.nav.services}</Link></li>
+              <li><Link href={`${basePath}/about`} className="hover:text-primary transition-colors">{dict.nav.about}</Link></li>
+              <li><Link href={`${basePath}/contact`} className="hover:text-primary transition-colors">{dict.nav.contact}</Link></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-semibold mb-4">Services</h3>
+            <h3 className="font-semibold mb-4">{dict.footer.services}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link href="/services" className="hover:text-primary transition-colors">Gestion Livraison</Link></li>
-              <li><Link href="/services" className="hover:text-primary transition-colors">Optimisation Catalogue</Link></li>
-              <li><Link href="/services" className="hover:text-primary transition-colors">Support Client</Link></li>
-              <li><Link href="/services" className="hover:text-primary transition-colors">Analyse Performance</Link></li>
+              <li><Link href={`${basePath}/services`} className="hover:text-primary transition-colors">{dict.footer.servicesLinks.delivery}</Link></li>
+              <li><Link href={`${basePath}/services`} className="hover:text-primary transition-colors">{dict.footer.servicesLinks.catalog}</Link></li>
+              <li><Link href={`${basePath}/services`} className="hover:text-primary transition-colors">{dict.footer.servicesLinks.support}</Link></li>
+              <li><Link href={`${basePath}/services`} className="hover:text-primary transition-colors">{dict.footer.servicesLinks.analytics}</Link></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
+            <h3 className="font-semibold mb-4">{dict.footer.contact}</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
@@ -54,7 +81,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Foodmoods. Tous droits réservés.</p>
+          <p>© {new Date().getFullYear()} Foodmoods. {dict.footer.copyright}</p>
         </div>
       </div>
     </footer>
