@@ -1,16 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SuccessModal from "@/components/SuccessModal";
 
 interface ContactPageClientProps {
-  lang: string;
+  lang: "fr" | "en";
   dict: {
     nav: {
       home: string;
@@ -43,11 +44,14 @@ interface ContactPageClientProps {
         namePlaceholder: string;
         email: string;
         emailPlaceholder: string;
+        phone: string;
+        phonePlaceholder: string;
         storeName: string;
         storeNamePlaceholder: string;
         message: string;
         messagePlaceholder: string;
         submit: string;
+        submitting: string;
       };
       infoTitle: string;
       email: string;
@@ -61,40 +65,130 @@ interface ContactPageClientProps {
         title: string;
         description: string;
       };
+      success: {
+        title: string;
+        message: string;
+        close: string;
+      };
+      error: {
+        generic: string;
+        invalidEmail: string;
+        required: string;
+      };
     };
   };
 }
 
 export default function ContactPageClient({ lang, dict }: ContactPageClientProps) {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     storeName: "",
     message: ""
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = dict.contact.error.required;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = dict.contact.error.required;
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        newErrors.email = dict.contact.error.invalidEmail;
+      }
+    }
+
+    if (!formData.storeName.trim()) {
+      newErrors.storeName = dict.contact.error.required;
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    toast({
-      title: dict.contact.toast.title,
-      description: dict.contact.toast.description,
-    });
-    
-    setFormData({
-      name: "",
-      email: "",
-      storeName: "",
-      message: ""
-    });
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrors({});
+
+    try {
+      const response = await fetch("/api/send-demo-request", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.storeName,
+          message: formData.message,
+          lang: lang,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          storeName: "",
+          message: ""
+        });
+        
+        // Show success modal
+        setShowSuccessModal(true);
+      } else {
+        // Show error toast
+        toast({
+          title: "Error",
+          description: dict.contact.error.generic,
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: dict.contact.error.generic,
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ""
+      });
+    }
   };
 
   return (
@@ -130,8 +224,12 @@ export default function ContactPageClient({ lang, dict }: ContactPageClientProps
                       value={formData.name}
                       onChange={handleChange}
                       placeholder={dict.contact.form.namePlaceholder}
-                      className="bg-background border-border"
+                      className={`bg-background border-border ${errors.name ? "border-destructive" : ""}`}
+                      disabled={isSubmitting}
                     />
+                    {errors.name && (
+                      <p className="text-sm text-destructive">{errors.name}</p>
+                    )}
                   </div>
 
                   <div className="space-y-2">
@@ -146,7 +244,27 @@ export default function ContactPageClient({ lang, dict }: ContactPageClientProps
                       value={formData.email}
                       onChange={handleChange}
                       placeholder={dict.contact.form.emailPlaceholder}
+                      className={`bg-background border-border ${errors.email ? "border-destructive" : ""}`}
+                      disabled={isSubmitting}
+                    />
+                    {errors.email && (
+                      <p className="text-sm text-destructive">{errors.email}</p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-sm font-medium">
+                      {dict.contact.form.phone}
+                    </label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder={dict.contact.form.phonePlaceholder}
                       className="bg-background border-border"
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -161,8 +279,12 @@ export default function ContactPageClient({ lang, dict }: ContactPageClientProps
                       value={formData.storeName}
                       onChange={handleChange}
                       placeholder={dict.contact.form.storeNamePlaceholder}
-                      className="bg-background border-border"
+                      className={`bg-background border-border ${errors.storeName ? "border-destructive" : ""}`}
+                      disabled={isSubmitting}
                     />
+                    {errors.storeName && (
+                      <p className="text-sm text-destructive">{errors.storeName}</p>
+                    )}
                   </div>
 
                   <div className="space-y-2">
@@ -177,6 +299,7 @@ export default function ContactPageClient({ lang, dict }: ContactPageClientProps
                       placeholder={dict.contact.form.messagePlaceholder}
                       rows={4}
                       className="bg-background border-border resize-none"
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -184,9 +307,19 @@ export default function ContactPageClient({ lang, dict }: ContactPageClientProps
                     type="submit"
                     size="lg"
                     className="w-full bg-primary hover:bg-primary/90 text-white"
+                    disabled={isSubmitting}
                   >
-                    {dict.contact.form.submit}
-                    <Send className="ml-2 w-4 h-4" />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                        {dict.contact.form.submitting}
+                      </>
+                    ) : (
+                      <>
+                        {dict.contact.form.submit}
+                        <Send className="ml-2 w-4 h-4" />
+                      </>
+                    )}
                   </Button>
                 </form>
               </div>
@@ -244,7 +377,13 @@ export default function ContactPageClient({ lang, dict }: ContactPageClientProps
       </main>
 
       <Footer lang={lang} dict={dict} />
+
+      {/* Success Modal */}
+      <SuccessModal
+        open={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        lang={lang}
+      />
     </div>
   );
 }
-
