@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import { Providers } from "../providers";
 import { locales, type Locale, getDictionary } from "@/lib/i18n";
+import { SeoJsonLd } from "@/components/SeoJsonLd";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -93,6 +94,9 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
+      <head>
+        <SeoJsonLd />
+      </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
       </body>
