@@ -26,6 +26,19 @@ export async function generateMetadata({
       ? "Switch to delivery, hassle-free. Foodmoods manages your presence on delivery platforms while you focus on your business."
       : "Passez à la livraison, sans prise de tête. Foodmoods gère votre présence sur les plateformes de livraison pendant que vous vous concentrez sur votre commerce.",
     metadataBase: new URL("https://foodmoods.fr"),
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "32x32" },
+        { url: "/icon.png", sizes: "32x32", type: "image/png" },
+        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+        { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+        { url: "/icon.svg", type: "image/svg+xml" },
+      ],
+      apple: [
+        { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      ],
+    },
+    manifest: "/manifest.json",
     openGraph: {
       title: "Foodmoods",
       description: isEnglish
@@ -85,6 +98,7 @@ export default async function RootLayout({
     </html>
   );
 }
+
 
 
 
